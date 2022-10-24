@@ -10,7 +10,7 @@
 
 ## Postman documentation url
 
-
+[Postman docs](https://documenter.getpostman.com/view/12847208/2s84LLzZC4)
 
 ## Environmental Variables at Runtime if not using docker
 
