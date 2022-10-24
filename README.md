@@ -32,7 +32,7 @@ Create a ".env" file at the root of your project and add the following for both 
     MYSQL_TEST_DATABASE=db-name-test
 ```
 
-## Limitation And Chanllanges
+## Limitation And Challanges
 
 1. i was unable to make use of webhook due to the atlas dashboard, the field on the form that allows me enter the the url is not clickable, the field is disabled.
 2. To initialte transfer of funds after generating a bank account number using this url ```https://integrations.getravenbank.com/v1/pwbt/generate_account``` when trying to make a transfer i should be able to select the account to be debited. but its not the case with this url for making transfer ```https://integrations.getravenbank.com/v1/transfers/create```
