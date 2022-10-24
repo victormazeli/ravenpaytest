@@ -1,64 +1,41 @@
-# express-knex-postgres-boilerplate
-
-Boilerplate code for quick setup for CRUD applications using express/knex/postgres/jest/supertest
+# express-knex-Mysql-boilerplate
 
 ##Setup - Detailed Instructions Below
 
-1. Git clone the repo ```git clone [url]``` and remove origin ```git remote remove origin```
+1. Git clone the repo ```git clone [url]```
 2. npm install
-3. setup postgres backend
-4. Modify .env file to suit your backend and migrate/seed db
-  1. migrate tables ```npx knex migrate:latest```
-  2. run seeds ```npx knex seed:run```
-5. npm run server
-6. npm run test
-7. modify code to suit your needs
+3. setup docker
+4. run project setup with ```docker compose -f docker-compose.yml up --build```
+5. access api endpoint at ```http://localhost:8080/api
 
-## Setup PostgreSQL
+## Postman documentation url
 
-### Homebrew (for macOS users)
 
-If you dont have postgres follow this link (Follow directions until you're able to get into psql utility): https://www.codementor.io/engineerapart/getting-started-with-postgresql-on-mac-osx-are8jcopb
 
-#### Create dev and test database (Mac)
-
-In terminal run the following commands:
-
-1. ```psql``` -- To get into postgreSQL utility
-2. ```CREATE DATABASE db-name;``` -- Creates development server
-3. ```CREATE DATABASE db-name-test;``` -- Creates testing server
-4. ```\q```
-5. CD into your repo
-
-### Windows
-
-If you dont have postgres follow this link: https://www.2ndquadrant.com/en/blog/pginstaller-install-postgresql/
-
-#### Create dev and test databases (Windows)
-
-Set up Postgres and create databases for both the development server (db-name) and testing server (db-name-test)
-
-1. Open pgAdmin, sign in with your master password created during the set up of postgres.
-2. Create a server if needed, if already created, turn server on by right clicking and pressing "Connect Server"
-3. Once connected, look for the drop down for databases and right click to Create a database
-4. Create a database called 'db-name' for the development connection & (db-name-test) for the testing connection
-
-## Environmental Variables at Runtime
+## Environmental Variables at Runtime if not using docker
 
 Create a ".env" file at the root of your project and add the following for both DEV and TEST databases
 
 ```
-    POSTGRES_DEV_HOST=localhost
-    POSTGRES_DEV_PORT=5432
-    POSTGRES_DEV_USER=postgres
-    POSTGRES_DEV_PASSWORD= \_Insert your postgres password here*
-    POSTGRES_DEV_DATABASE=db-name
+    MYSQL_DEV_HOST=localhost
+    MYSQL_DEV_PORT=3306
+    MYSQL_DEV_USER=root
+    MYSQL_DEV_PASSWORD= \_Insert your mysql password here*
+    MYSQL_DEV_DATABASE=db-name
 ```
 
 ```
-    POSTGRES_TEST_HOST=localhost
-    POSTGRES_TEST_PORT=5432
-    POSTGRES_TEST_USER=postgres
-    POSTGRES_TEST_PASSWORD= \_Insert your postgres password here*
-    POSTGRES_TEST_DATABASE=db-name-test
+    MYSQL_TEST_HOST=localhost
+    MYSQL_TEST_PORT=3306
+    MYSQL_TEST_USER=root
+    MYSQL_TEST_PASSWORD= \_Insert your mysql password here*
+    MYSQL_TEST_DATABASE=db-name-test
 ```
+
+## Limitation And Chanllanges
+
+1. i was unable to make use of webhook due to the atlas dashboard, the field on the form that allows me enter the the url is not clickable, the field is disabled.
+2. To initialte transfer of funds after generating a bank account number using this url ```https://integrations.getravenbank.com/v1/pwbt/generate_account``` when trying to make a transfer i should be able to select the account to be debited. but its not the case with this url for making transfer ```https://integrations.getravenbank.com/v1/transfers/create```
+3. i should be able to make use of sandbox url for testing of apis rather than using live credentials. the secret keys provided on the atlas dashboard, only the live keys work with this url ```https://integrations.getravenbank.com/v1/```
+
+As a result of the limitations above, i am unable to implement and complete my task. if theres a misunderstanding on usage of the atlas, please i kindl request a guide on how to use it and i can complete my task. Thank you
