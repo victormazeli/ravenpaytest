@@ -1,0 +1,44 @@
+version: "3"
+services:
+  app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    command: sh -c "npm run migration:latest && npm run start"
+    restart: always
+    environment:
+      NODE_ENV: development
+      SECRET_TOKEN: "1adb941a06800b9590779e96a5243046e11d39a4cc16764d7e9f4984851f7276"
+      SECRET_RTOKEN: "7d7cd4e153e5d8896a807f0e81cf9d33fff11acdcf647a11801914db8a6741d4"
+      PORT: "3000"
+      MYSQL_DEV_HOST: mysqlDB
+      MYSQL_DEV_PORT: 3306
+      MYSQL_DEV_USER: root
+      MYSQL_DEV_PASSWORD: Abracadabra@1234
+      MYSQL_DEV_DATABASE: raven
+    depends_on:
+      - mysqlDB
+    ports:
+      - "8080:3000"
+    networks:
+      - raven_network
+  
+  mysqlDB:
+    image: mysql:latest
+    restart: always
+    environment: 
+     MYSQL_DATABASE: 'raven'
+     MYSQL_ROOT_PASSWORD: 'Abracadabra@1234'
+    volumes: 
+      - datadir:/var/lib/mysql
+    ports: 
+      - 3306:3306
+    networks:
+      - raven_network
+
+networks:
+  raven_network:
+
+volumes:
+  database_postgres:
+  datadir:

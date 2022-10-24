@@ -4,14 +4,14 @@ const pg = require("pg");
 
 module.exports = {
   development: {
-    client: "pg",
+    client: 'mysql2',
     useNullAsDefault: true,
     connection: {
-      host: process.env.POSTGRES_DEV_HOST,
-      port: process.env.POSTGRES_DEV_PORT,
-      user: process.env.POSTGRES_DEV_USER,
-      password: process.env.POSTGRES_DEV_PASSWORD,
-      database: process.env.POSTGRES_DEV_DATABASE
+      host: process.env.MYSQL_DEV_HOST,
+      port: process.env.MYSQL_DEV_PORT,
+      user: process.env.MYSQL_DEV_USER,
+      password: process.env.MYSQL_DEV_PASSWORD,
+      database: process.env.MYSQL_DEV_DATABASE
     },
     migrations: {
       directory: "./database/migrations"
@@ -22,13 +22,13 @@ module.exports = {
   },
 
   testing: {
-    client: "pg",
+    client: 'mysql2',
     connection: {
-      host: process.env.POSTGRES_TEST_HOST,
-      port: process.env.POSTGRES_TEST_PORT,
-      user: process.env.POSTGRES_TEST_USER,
-      password: process.env.POSTGRES_TEST_PASSWORD,
-      database: process.env.POSTGRES_TEST_DATABASE
+      host: process.env.MYSQL_TEST_HOST,
+      port: process.env.MYSQL_TEST_PORT,
+      user: process.env.MYSQL_TEST_USER,
+      password: process.env.MYSQL_TEST_PASSWORD,
+      database: process.env.MYSQL_TEST_DATABASE
     },
     useNullAsDefault: true,
     migrations: {

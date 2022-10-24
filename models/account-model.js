@@ -1,43 +1,43 @@
 const db = require("../config/dbConfig.js");
 
-// GET ALL USERS
+// GET ALL accounts
 const find = () => {
-  return db("users");
+  return db("accounts");
 };
 
 // GET SPECIFIC USER BY ID
 const findById = id => {
-  return db("users").where("id", id).first();
+  return db("accounts").where("id", id).first();
 
   //SQL RAW METHOD
-  // return db.raw(`SELECT * FROM users
+  // return db.raw(`SELECT * FROM accounts
   //                  WHERE id = ${id}`);
 };
 
 // GET SPECIFIC USER BY EMAIL
 const findByOne = condition => {
-  return db("users").where(condition).first();
+  return db("accounts").where(condition).first();
 
   //SQL RAW METHOD
-  // return db.raw(`SELECT * FROM users
+  // return db.raw(`SELECT * FROM accounts
   //                  WHERE id = ${id}`);
 };
 
 // ADD A USER
-const addUser = user => {
-  return db("users").insert(user, "id");
+const addAccount = account => {
+  return db("accounts").insert(account, "id");
 };
 
 // UPDATE USER
-const updateUser = (id, post) => {
-  return db("users")
+const updateAccount = (id, post) => {
+  return db("accounts")
     .where("id", id)
     .update(post);
 };
 
 // REMOVE USER
-const removeUser = id => {
-  return db("users")
+const removeAccount = id => {
+  return db("accounts")
     .where("id", id)
     .del();
 };
@@ -45,8 +45,8 @@ const removeUser = id => {
 module.exports = {
   find,
   findById,
-  addUser,
-  updateUser,
-  removeUser,
+  addAccount,
+  updateAccount,
+  removeAccount,
   findByOne
 };

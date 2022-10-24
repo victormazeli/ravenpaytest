@@ -6,7 +6,11 @@
   "scripts": {
     "test": "DB_ENV=testing jest --watch --verbose",
     "server": "nodemon index.js",
-    "start": "node index.js"
+    "start": "node index.js",
+    "migration:up": "knex migrate:up",
+    "migration:make": "knex migrate:make",
+    "migration:down": "knex migrate:down",
+    "migration:latest": "knex migrate:latest"
   },
   "jest": {
     "testEnvironment": "node"
@@ -23,12 +27,19 @@
   },
   "homepage": "https://github.com/raberin/express-knex-postgres-boilerplate#readme",
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "express-validator": "^6.14.2",
+    "jsonwebtoken": "^8.5.1",
     "knex": "^0.20.4",
     "morgan": "^1.9.1",
-    "pg": "^7.15.2"
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3",
+    "pg": "^7.15.2",
+    "axios": "^0.21.4",
+    "redis": "^4.3.1"
   },
   "devDependencies": {
     "cross-env": "^6.0.3",
